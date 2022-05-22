@@ -1,6 +1,8 @@
 package com.course.core.student.model.root;
 
 import com.course.core.student.model.StudentNo;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +11,11 @@ import lombok.NoArgsConstructor;
  * 학생
  */
 @Getter
+@Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Student {
 
+    @EmbeddedId
     private StudentNo no;
 
     private String department;
