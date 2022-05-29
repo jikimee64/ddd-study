@@ -1,6 +1,9 @@
 package com.course.core.student.model.root;
 
+import com.course.core.student.model.Academic;
+import com.course.core.student.model.Credit;
 import com.course.core.student.model.StudentNo;
+import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import lombok.AccessLevel;
@@ -22,44 +25,18 @@ public class Student {
 
     private String name;
 
-    private Integer grade; //학년
+    @Embedded
+    Academic academic; //학년 + 학기
 
-    private Integer semester; //학기
+    @Embedded
+    private Credit credit; //학점
 
-    private Integer credit; //학점
-
-    public Student(String department, String name, Integer grade, Integer semester) {
+    public Student(String department, String name, Academic academic) {
         this.no = new StudentNo();
-        validGradeMax(grade);
-        validSemesterMax(semester);
         this.department = department;
         this.name = name;
-        this.grade = grade;
-        this.semester = semester;
-        this.credit = 0;
-    }
-
-    public void validGradeMax(Integer grade) {
-        if (grade == null || grade > 4) {
-            throw new IllegalArgumentException("grade must less than 5");
-        }
-    }
-
-    public void validSemesterMax(Integer semester) {
-        if (semester == null || semester > 2) {
-            throw new IllegalArgumentException("grade must less than 5");
-        }
-    }
-
-    public void addCredit(Integer credit) {
-        validMaxCredit(credit);
-        this.credit += credit;
-    }
-
-    private void validMaxCredit(Integer credit) {
-        if (this.credit + credit > 21) {
-            throw new IllegalArgumentException("max credit");
-        }
+        this.academic = academic;
+        this.credit = new Credit();
     }
 
 }
