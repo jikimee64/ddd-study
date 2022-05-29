@@ -29,6 +29,7 @@ public class Student {
     private Integer credit; //학점
 
     public Student(String department, String name, Integer grade, Integer semester) {
+        this.no = new StudentNo();
         validGradeMax(grade);
         validSemesterMax(semester);
         this.department = department;
