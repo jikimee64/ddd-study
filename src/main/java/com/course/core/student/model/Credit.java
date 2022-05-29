@@ -13,13 +13,13 @@ public class Credit {
         this.credit = 0;
     }
 
-    public void addCredit(Integer credit) {
-        validMaxCredit(credit);
-        this.credit += credit;
+    public Credit(Integer credit, Integer newCredit) {
+        validMaxCredit(credit, newCredit);
+        this.credit = credit + newCredit;
     }
 
-    private void validMaxCredit(Integer credit) {
-        if (this.credit + credit > 21) {
+    private void validMaxCredit(Integer credit, Integer newCredit) {
+        if (credit + newCredit > 21) {
             throw new IllegalArgumentException("max credit");
         }
     }

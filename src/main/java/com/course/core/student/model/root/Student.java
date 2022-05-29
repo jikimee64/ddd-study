@@ -39,4 +39,8 @@ public class Student {
         this.credit = new Credit();
     }
 
+    public void addCredit(Integer newCredit){
+        this.credit = new Credit(this.credit.getCredit(), newCredit);
+    }
+
 }
