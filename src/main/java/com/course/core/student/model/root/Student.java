@@ -18,18 +18,47 @@ public class Student {
     @EmbeddedId
     private StudentNo no;
 
-    private String department;
+    private String department; //학과
 
     private String name;
 
-    private String grade;
+    private Integer grade; //학년
 
-    private String gender;
+    private Integer semester; //학기
 
-    private String age;
+    private Integer credit; //학점
 
-    private String phoneNumber;
+    public Student(String department, String name, Integer grade, Integer semester) {
+        validGradeMax(grade);
+        validSemesterMax(semester);
+        this.department = department;
+        this.name = name;
+        this.grade = grade;
+        this.semester = semester;
+        this.credit = 0;
+    }
 
-    private String address;
+    public void validGradeMax(Integer grade) {
+        if (grade == null || grade > 4) {
+            throw new IllegalArgumentException("grade must less than 5");
+        }
+    }
+
+    public void validSemesterMax(Integer semester) {
+        if (semester == null || semester > 2) {
+            throw new IllegalArgumentException("grade must less than 5");
+        }
+    }
+
+    public void addCredit(Integer credit) {
+        validMaxCredit(credit);
+        this.credit += credit;
+    }
+
+    private void validMaxCredit(Integer credit) {
+        if (this.credit + credit > 21) {
+            throw new IllegalArgumentException("max credit");
+        }
+    }
 
 }

@@ -4,8 +4,11 @@ import com.course.core.student.model.StudentNo;
 import java.time.LocalDateTime;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 @Embeddable
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class EnrollStudents {
 
     @Embedded
