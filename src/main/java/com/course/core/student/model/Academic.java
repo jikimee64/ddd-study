@@ -2,11 +2,13 @@ package com.course.core.student.model;
 
 import javax.persistence.Embeddable;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @Embeddable
+@EqualsAndHashCode(of = {"grade", "semester"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Academic {
 

@@ -1,10 +1,12 @@
 package com.course.core.student.model;
 
 import javax.persistence.Embeddable;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Getter
 @Embeddable
+@EqualsAndHashCode(of = "credit")
 public class Credit {
 
     private Integer credit; //학점
