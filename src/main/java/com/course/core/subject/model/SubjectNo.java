@@ -1,18 +1,24 @@
 package com.course.core.subject.model;
 
 import java.io.Serializable;
-import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 
 @Embeddable
+@AllArgsConstructor
 @EqualsAndHashCode(of = "no")
 public class SubjectNo implements Serializable {
 
-    private final String no;
+    @Column(name = "subject_no")
+    private String no;
 
-    public SubjectNo() {
-        this.no = UUID.randomUUID().toString();
+    protected SubjectNo() {
+    }
+
+    public static SubjectNo of(String no){
+        return new SubjectNo(no);
     }
 
 }

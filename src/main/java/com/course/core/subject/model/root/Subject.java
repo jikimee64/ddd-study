@@ -23,4 +23,10 @@ public class Subject {
 
     private LeeSo leeSo; //이수 구분
 
+    public Subject(SubjectNo no, String name, LeeSo leeSo) {
+        this.no = no;
+        this.name = name;
+        this.leeSo = leeSo;
+    }
+
 }

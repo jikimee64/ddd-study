@@ -31,8 +31,8 @@ public class Student {
     @Embedded
     private Credit credit; //학점
 
-    public Student(String department, String name, Academic academic) {
-        this.no = new StudentNo();
+    public Student(StudentNo no, String department, String name, Academic academic) {
+        this.no = no;
         this.department = department;
         this.name = name;
         this.academic = academic;

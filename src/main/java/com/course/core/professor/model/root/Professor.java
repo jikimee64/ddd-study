@@ -30,4 +30,15 @@ public class Professor {
 
     private String gender;
 
+    public Professor(ProfessorNo no, String department, String name, String phoneNumber,
+        String labLocation, String address, String gender) {
+        this.no = no;
+        this.department = department;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.labLocation = labLocation;
+        this.address = address;
+        this.gender = gender;
+    }
+
 }

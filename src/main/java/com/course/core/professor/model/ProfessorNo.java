@@ -1,18 +1,24 @@
 package com.course.core.professor.model;
 
 import java.io.Serializable;
-import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 
 @Embeddable
+@AllArgsConstructor
 @EqualsAndHashCode(of = "no")
 public class ProfessorNo implements Serializable {
 
+    @Column(name = "professor_no")
     private String no;
 
-    public ProfessorNo() {
-        this.no = UUID.randomUUID().toString();
+    protected ProfessorNo() {
+    }
+
+    public static ProfessorNo of(String no) {
+        return new ProfessorNo(no);
     }
 
 }

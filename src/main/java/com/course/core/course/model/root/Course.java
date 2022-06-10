@@ -2,11 +2,12 @@ package com.course.core.course.model.root;
 
 import com.course.core.course.model.CourseNo;
 import com.course.core.course.model.CourseState;
+import com.course.core.course.model.CourseTime;
 import com.course.core.course.model.EnrollCount;
 import com.course.core.course.model.EnrollStudents;
 import com.course.core.professor.model.ProfessorNo;
 import com.course.core.subject.model.SubjectNo;
-import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
@@ -37,13 +38,13 @@ public class Course {
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "enroll_students", joinColumns = @JoinColumn(name = "course_no"))
-    //@OrderColumn(name = "line_idx")
-    private List<EnrollStudents> students;
+    private List<EnrollStudents> students = new ArrayList<>();
 
     @Embedded
     private SubjectNo subjectNo;
 
-    private Duration times;
+    @Embedded
+    private CourseTime courseTime;
 
     @Embedded
     private EnrollCount enrollCount;
@@ -51,5 +52,17 @@ public class Course {
     private String location;
 
     private CourseState courseState;
+
+    public Course(CourseNo no, ProfessorNo professorNo, String department, SubjectNo subjectNo,
+        CourseTime courseTime, EnrollCount enrollCount, String location, CourseState courseState) {
+        this.no = no;
+        this.professorNo = professorNo;
+        this.department = department;
+        this.subjectNo = subjectNo;
+        this.courseTime = courseTime;
+        this.enrollCount = enrollCount;
+        this.location = location;
+        this.courseState = courseState;
+    }
 
 }
