@@ -1,1 +1,8 @@
+spring:
+  datasource:
+    driver-class-name:
 
+graphql:
+  spqr:
+    gui:
+      enabled: true
