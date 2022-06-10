@@ -1,9 +1,9 @@
 package com.course.graphql.student;
 
+import com.course.core.student.application.dto.response.StudentResponse;
 import com.course.core.student.model.Academic;
 import com.course.core.student.model.StudentNo;
 import com.course.core.student.model.root.Student;
-import com.course.graphql.student.dto.response.StudentResponse;
 import com.course.mapstruct.StudentMapper;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import java.util.ArrayList;

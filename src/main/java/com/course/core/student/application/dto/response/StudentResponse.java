@@ -1,4 +1,4 @@
-package com.course.graphql.student.dto.response;
+package com.course.core.student.application.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

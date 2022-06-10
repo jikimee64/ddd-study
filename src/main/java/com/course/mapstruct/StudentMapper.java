@@ -1,7 +1,7 @@
 package com.course.mapstruct;
 
+import com.course.core.student.application.dto.response.StudentResponse;
 import com.course.core.student.model.root.Student;
-import com.course.graphql.student.dto.response.StudentResponse;
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueMappingStrategy;

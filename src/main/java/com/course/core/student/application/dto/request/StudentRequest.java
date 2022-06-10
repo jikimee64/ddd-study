@@ -1,4 +1,4 @@
-package com.course.graphql.student.dto.request;
+package com.course.core.student.application.dto.request;
 
 
 import lombok.AllArgsConstructor;
