@@ -1,0 +1,10 @@
+# GraphQL Schema 정의
+type Student {
+    department: ID!
+    name: String!
+}
+
+# 루트 쿼리 (Root Query)
+type Query {
+    getStudents(count: Int!, offset: Int!): [Student]!
+}

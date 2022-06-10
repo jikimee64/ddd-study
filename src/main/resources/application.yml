@@ -1,8 +1,16 @@
-spring:
-  datasource:
-    driver-class-name:
-
 graphql:
-  spqr:
-    gui:
-      enabled: true
+  servlet:
+    mapping: /graphql
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+  #graphql:
+  #  spqr:
+  #    gui:
+  #      enabled: true
+
+
+
