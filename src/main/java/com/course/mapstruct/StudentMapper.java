@@ -12,8 +12,8 @@ public interface StudentMapper {
 
     StudentMapper INSTANCE = Mappers.getMapper(StudentMapper.class);
 
-    List<StudentResponse> toDto(List<Student> students);
+    List<StudentResponse> toDtos(List<Student> students);
 
-    //@Mapping(target = "employeeId", source = "employeeId")
+    StudentResponse toDto(Student student);
 
 }

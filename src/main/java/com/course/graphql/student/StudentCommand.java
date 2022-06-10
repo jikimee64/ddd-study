@@ -3,11 +3,10 @@ package com.course.graphql.student;
 import com.course.core.student.model.Academic;
 import com.course.core.student.model.StudentNo;
 import com.course.core.student.model.root.Student;
+import com.course.graphql.student.dto.request.StudentRequest;
 import com.course.graphql.student.dto.response.StudentResponse;
 import com.course.mapstruct.StudentMapper;
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import java.util.ArrayList;
-import java.util.List;
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -15,18 +14,19 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class StudentQuery implements GraphQLQueryResolver {
+public class StudentCommand implements GraphQLMutationResolver {
 
-    public List<StudentResponse> getStudents(int count, int offset) {
-        log.info("count {}", count);
-        log.info("offset {}", offset);
+    public boolean addStudent(StudentRequest studentRequest) {
+        log.info("studentRequest {}", studentRequest);
+        return true;
+    }
 
-        List<Student> students = new ArrayList<>();
+    public StudentResponse putStudent(String name) {
+        log.info("name {}", name);
         Student student = new Student(new StudentNo("1"), "부서", "이름",
             new Academic(4, 1));
-        students.add(student);
 
-        return StudentMapper.INSTANCE.toDtos(students);
+        return StudentMapper.INSTANCE.toDto(student);
     }
 
 }

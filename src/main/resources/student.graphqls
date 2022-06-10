@@ -1,10 +1,22 @@
-# GraphQL Schema 정의
+type Query {
+    getStudents(count: Int!, offset: Int): [Student]!
+}
+
 type Student {
-    department: ID!
+    department: String!
     name: String!
 }
 
-# 루트 쿼리 (Root Query)
-type Query {
-    getStudents(count: Int!, offset: Int!): [Student]!
+#########################################################
+
+type Mutation {
+    addStudent(studentBody: AddStudentBody!): Boolean
+    putStudent(name: String!) : Student!
+}
+
+input AddStudentBody {
+    department: String!
+    name: String!
+    grade: Int
+    semester: Int
 }
